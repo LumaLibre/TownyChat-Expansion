@@ -289,7 +289,7 @@ public class TownyChatExpansion extends PlaceholderExpansion implements Listener
     @Override
     public @Nullable String handle(Player p, String identifier) {
       if (isEnabled() && ChatAPI.isUsingPartyChat(p)) {
-        return "mcMMO Party";
+        return "Party";
       }
       return null;
     }
@@ -323,7 +323,7 @@ public class TownyChatExpansion extends PlaceholderExpansion implements Listener
       }
 
       if (instance().data().isAutomaticStaffChatEnabled(p)) {
-        return "Staff-Chat";
+        return "Staff";
       }
 
       return null;
