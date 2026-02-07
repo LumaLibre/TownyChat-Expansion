@@ -7,7 +7,7 @@
     <groupId>com.extendedclip.papi.expansion</groupId>
     <artifactId>townychat</artifactId>
     <name>Expansion-TownyChat</name>
-    <version>1.2</version>
+    <version>1.5</version>
 
     <description>A Placeholder Expansion for TownyChat by LlmDl</description>
     <properties>
@@ -27,6 +27,14 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>modrinth</id>
+            <url>https://api.modrinth.com/maven</url>
+        </repository>
+        <repository>
+            <id>neetgames</id>
+            <url>https://nexus.neetgames.com/repository/maven-releases/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -39,18 +47,32 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.10.9</version>
+            <version>2.11.6</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.TownyAdvanced</groupId>
             <artifactId>TownyChat</artifactId>
             <version>0.87</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.TownyAdvanced</groupId>
             <artifactId>Towny</artifactId>
             <version>0.96.7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>maven.modrinth</groupId>
+            <artifactId>discordsrv-staff-chat</artifactId>
+            <version>1.4.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gmail.nossr50.mcMMO</groupId>
+            <artifactId>mcMMO</artifactId>
+            <version>2.2.049</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -75,8 +97,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
-                    <target>1.8</target>
-                    <source>1.8</source>
+                    <target>14</target>
+                    <source>14</source>
                     <encoding>UTF-8</encoding>
                     <useIncrementalCompilation>false</useIncrementalCompilation>
                 </configuration>
