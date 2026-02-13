@@ -92,7 +92,7 @@ public class TownyChatExpansion extends PlaceholderExpansion implements Listener
   }
 
   public void cleanup(Player player) {
-    if (this.players != null && this.players.containsKey(player.getName())) {
+    if (this.players != null) {
       this.players.remove(player.getName());
     }
   }
@@ -207,8 +207,7 @@ public class TownyChatExpansion extends PlaceholderExpansion implements Listener
 
 
     @Override
-    @NotNull
-    public String handle(Player p, String identifier) {
+    public @Nullable String handle(Player p, String identifier) {
       try {
         Resident r = TownyUniverse.getInstance().getResident(p.getName());
         if (r == null) return "";
@@ -260,6 +259,10 @@ public class TownyChatExpansion extends PlaceholderExpansion implements Listener
 
     @Override
     public String handle(Player p, String identifier) {
+      if (p.getTicksLived() < 150) {
+        return null; // Wait for other plugins to finish hooks
+      }
+
       for (RequestHandler otherHandler : otherHandlers) {
         String result = otherHandler.handle(p, identifier);
         if (result != null) {
@@ -271,6 +274,10 @@ public class TownyChatExpansion extends PlaceholderExpansion implements Listener
 
     @Override
     public @Nullable String color(Player p) {
+      if (p.getTicksLived() < 150) {
+        return null; // Wait for other plugins to finish hooks
+      }
+
       for (ChatRequestHandler otherHandler : otherHandlers) {
         String result = otherHandler.color(p);
         if (result != null) {
